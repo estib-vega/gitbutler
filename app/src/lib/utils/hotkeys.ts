@@ -1,8 +1,23 @@
 import { tinykeys } from 'tinykeys';
 
+export enum KeyName {
+	Space = ' ',
+	Meta = 'Meta',
+	Alt = 'Alt',
+	Ctrl = 'Ctrl',
+	Enter = 'Enter',
+	Escape = 'Escape',
+	Tab = 'Tab',
+	Up = 'ArrowUp',
+	Down = 'ArrowDown',
+	Left = 'ArrowLeft',
+	Right = 'ArrowRight',
+	Delete = 'Backspace'
+}
+
 export function on(combo: string, callback: (event: KeyboardEvent) => void) {
 	const comboContainsControlKeys =
-		combo.includes('Meta') || combo.includes('Alt') || combo.includes('Ctrl');
+		combo.includes(KeyName.Meta) || combo.includes(KeyName.Alt) || combo.includes(KeyName.Ctrl);
 
 	return tinykeys(window, {
 		[combo]: (event) => {
